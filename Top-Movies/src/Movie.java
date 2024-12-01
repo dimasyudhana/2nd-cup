@@ -4,9 +4,9 @@ public class Movie {
     private double rating;
 
     public Movie(String name, String format, double rating) {
-        this.name = name;
-        this.format = format;
-        this.rating = rating;
+        setName(name);
+        setFormat(format);
+        setRating(rating);
     }
 
     public Movie(Movie src) {
@@ -20,7 +20,13 @@ public class Movie {
     }
 
     public void setName(String name) {
+        
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("nama tidak boleh kosong");
+        }
+
         this.name = name;
+    
     }
 
     public String getFormat() {
@@ -28,7 +34,13 @@ public class Movie {
     }
 
     public void setFormat(String format) {
+
+        if (format == null || format.isBlank()) {
+            throw new IllegalArgumentException("format tidak boleh kosong");
+        }
+
         this.format = format;
+    
     }
 
     public double getRating() {
@@ -36,7 +48,13 @@ public class Movie {
     }
 
     public void setRating(double rating) {
+
+        if (rating < 0 || rating > 10) {
+            throw new IllegalArgumentException("rating tidak sesuai");
+        }
+
         this.rating = rating;
+    
     }
 
     public String toString() {
