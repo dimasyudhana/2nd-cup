@@ -1,3 +1,7 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,6 +40,15 @@ public class Main {
 
 
         System.out.println("angka 1 diulang sebanyak " + counted + " kali.");
+
+        System.out.println();
+
+        try {
+            Path path = Paths.get("Stream-Opt/src/chorus.txt");
+            Files.lines(path).forEach(row -> System.out.println(row));
+        } catch (IOException err) {
+            System.out.println(err);
+        }
 
         System.out.println();
 
