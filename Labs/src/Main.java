@@ -27,9 +27,12 @@ public class Main {
         lab.setLabEquipment(0, microscope2);
 
         retrievedLabEquipment = lab.getLabEquipment(0);
-        // retrievedLabEquipment instanceof Microscope
-        Microscope retrievedMicroscope = (Microscope) retrievedLabEquipment;
-        System.out.println("Updated Lab Equipment ("+ retrievedLabEquipment.getClass().getSimpleName().toLowerCase() + ") : " + retrievedLabEquipment.getManufacturer() + " " + retrievedLabEquipment.getModel() + " " + retrievedMicroscope.getMagnification());
+        if  (retrievedLabEquipment instanceof Microscope) {
+            Microscope retrievedMicroscope = (Microscope) retrievedLabEquipment;
+            System.out.println("Updated Lab Equipment ("+ retrievedLabEquipment.getClass().getSimpleName().toLowerCase() + ") : " + retrievedLabEquipment.getManufacturer() + " " + retrievedLabEquipment.getModel() + " " + retrievedMicroscope.getMagnification());
+        } else {
+            System.out.println("bukan microscope");
+        }
         
     }
 }
